@@ -1,3 +1,8 @@
+/**
+*  @author Callr SAS <integrations@callr.com>
+*  @copyright  2016 Callr SAS
+*  @license    https://opensource.org/licenses/MIT
+*/
 $(document).ready(function() {
 
 	// SMS tester markup
