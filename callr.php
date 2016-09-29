@@ -5,8 +5,8 @@
 * Send SMS notifications on order updates
 *
 *    @author Callr SAS <integrations@callr.com>
-*    @copyright  2016 Callr SAS
-*    @license    https://opensource.org/licenses/MIT
+*    @copyright 2016 Callr SAS
+*    @license https://opensource.org/licenses/MIT
 */
 
 class Callr extends Module
@@ -46,7 +46,7 @@ class Callr extends Module
      **/
     public function uninstall()
     {
-        return parent::uninstall() && Configuration::deleteByName(strtoupper($this->name));
+        return parent::uninstall() && Configuration::deleteByName(Tools::strtoupper($this->name));
     }
 
     /**
@@ -124,7 +124,7 @@ class Callr extends Module
                 }
             }
             if (empty($errors)) {
-                Configuration::updateValue(strtoupper($this->name), Tools::jsonEncode($data));
+                Configuration::updateValue(Tools::strtoupper($this->name), Tools::jsonEncode($data));
                 $output .= $this->displayConfirmation($this->l('Settings updated'));
             } else {
                 $output .= implode($errors);
