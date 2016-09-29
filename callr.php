@@ -1,24 +1,18 @@
 <?php
 /**
-* Callr.
+* Callr
 *
 * Send SMS notifications on order updates
 *
-*  @author Callr SAS <integrations@callr.com>
-*  @copyright  2016 Callr SAS
-*  @license    https://opensource.org/licenses/MIT
-*/
-/*
-if (!defined('_PS_VERSION_')) {
-    exit;
-}
+*    @author Callr SAS <integrations@callr.com>
+*    @copyright  2016 Callr SAS
+*    @license    https://opensource.org/licenses/MIT
 */
 
-class callr extends Module
+class Callr extends Module
 {
     public function __construct()
     {
-
         require_once 'lib/vendor/autoload.php';
 
         $this->name = 'callr';
@@ -44,7 +38,7 @@ class callr extends Module
             $this->registerHook('backOfficeHeader') &&
             $this->registerHook('newOrder') &&
             $this->registerHook('actionOrderStatusUpdate') &&
-            Configuration::updateValue(strtoupper($this->name), '{}');
+            Configuration::updateValue(Tools::strtoupper($this->name), '{}');
     }
 
     /**
@@ -68,7 +62,7 @@ class callr extends Module
      */
     public function hookBackOfficeHeader()
     {
-        if (array_key_exists('module_name', $_GET) && $_GET['module_name'] == $this->name) {
+        if (Tools::getValue('module_name') == $this->name) {
             $this->context->controller->addJS($this->_path.'/views/js/callr.js');
             $this->context->controller->addCSS($this->_path.'/views/css/callr.css');
         }
@@ -119,7 +113,7 @@ class callr extends Module
                         }
                         break;
                     default:
-                        if (substr($key, 0, 22) == 'customer_notification_') {
+                        if (Tools::substr($key, 0, 22) == 'customer_notification_') {
                             // Checkbox
                             if ($value) {
                                 $data[$key] = true;
@@ -130,7 +124,7 @@ class callr extends Module
                 }
             }
             if (empty($errors)) {
-                Configuration::updateValue(strtoupper($this->name), json_encode($data));
+                Configuration::updateValue(strtoupper($this->name), Tools::jsonEncode($data));
                 $output .= $this->displayConfirmation($this->l('Settings updated'));
             } else {
                 $output .= implode($errors);
@@ -214,7 +208,8 @@ class callr extends Module
                             'desc' => $this->l('Your mobile phone number in E.164 format. Example: "+3384140055".')
                                 .'<br>'
                                 .$this->l(
-                                    'You can separate multiple numbers with commas. Example:  "+16467890800, +33678912345".'
+                                    'You can separate multiple numbers with commas. ' .
+                                    'Example:  "+16467890800, +33678912345".'
                                 ),
                         ),
                         array(
@@ -243,7 +238,8 @@ class callr extends Module
                             'label' => $this->l('Notifications'),
                             'name' => 'customer_notification',
                             'desc' => $this->l(
-                                'Check the statuses for which you want your customers to be notified by SMS when their order is updated.'
+                                'Check the statuses for which you want your customers to ' .
+                                'be notified by SMS when their order is updated.'
                             ),
                             'values' => array(
                                 'query' => $checkboxes,
@@ -269,25 +265,40 @@ class callr extends Module
                             'type' => 'text',
                             'label' => $this->l('Username'),
                             'name' => 'callr_username',
-                            'desc' => $this->l('Your Callr username. You can register an account at ').'<a href="http://callr.com" target="_blank">http://callr.com</a>.',
+                            'desc' => $this->l('Your Callr username. You can register an account at ') .
+                                '<a href="http://callr.com" target="_blank">http://callr.com</a>.',
                         ),
                         array(
                             'type' => 'text',
                             'label' => $this->l('Password'),
                             'name' => 'callr_password',
-                            'desc' => $this->l('Your Callr password. You can register an account at ').'<a href="http://callr.com" target="_blank">http://callr.com</a>.',
+                            'desc' => $this->l('Your Callr password. You can register an account at ') .
+                                '<a href="http://callr.com" target="_blank">http://callr.com</a>.',
                         ),
                         array(
                             'type' => 'text',
                             'label' => $this->l('Sender ID'),
                             'name' => 'callr_sender',
-                            'desc' => $this->l('The SMS sender. If empty, a shared shortcode will be automatically selected according to the destination carrier. Otherwise, it must be either a dedicated shortcode, or alphanumeric (at least one character - cannot be digits only).').'<br>'.$this->l('Max length: 11 characters. Depending on your account configuration, you may have to ask Callr support team to authorize custom Sender IDs. "SMS" is always authorized.'),
+                            'desc' => $this->l(
+                                'The SMS sender. If empty, a shared shortcode will be automatically ' .
+                                'selected according to the destination carrier. ' .
+                                'Otherwise, it must be either a dedicated shortcode, or alphanumeric ' .
+                                '(at least one character - cannot be digits only).'
+                            ) .
+                                '<br>' . $this->l(
+                                    'Max length: 11 characters. Depending on your account configuration, '.
+                                    ' you may have to ask Callr support team to authorize custom Sender IDs. '.
+                                    '"SMS" is always authorized.'
+                                ),
                         ),
                         array(
                             'type' => 'checkbox',
                             'label' => $this->l('Debug'),
                             'name' => 'callr',
-                            'desc' => $this->l('Check this box if you are having issues sending SMS. This will append errors to the log.'),
+                            'desc' => $this->l(
+                                'Check this box if you are having issues sending SMS.
+                                This will append errors to the log.'
+                            ),
                             'values' => array(
                                 'query' => array(
                                     array(
@@ -342,10 +353,12 @@ class callr extends Module
         $helper->table = $this->table;
         $lang = new Language((int) Configuration::get('PS_LANG_DEFAULT'));
         $helper->default_form_language = $lang->id;
-        $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ? Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') : 0;
+        $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ?
+            Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') : 0;
         $helper->identifier = $this->identifier;
         $helper->submit_action = 'submit'.$this->name;
-        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+        $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false) .
+            '&configure=' . $this->name .'&tab_module=' .$this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->tpl_vars = array(
             'fields_value' => $this->getConfigFieldsValues(),
@@ -369,7 +382,8 @@ class callr extends Module
             'admin_enabled' => false,
             'admin_phone' => '',
             'admin_message' => 'New order #[order_id] on [shop_name] for [order_currency][order_amount].',
-            'customer_message_default' => 'Dear [first_name], your order #[order_id] on [shop_name] is now: [order_status].',
+            'customer_message_default' => 'Dear [first_name], your order #[order_id] ' .
+                'on [shop_name] is now: [order_status].',
             'callr_username' => '',
             'callr_password' => '',
             'callr_sender' => 'SMS',
@@ -410,7 +424,7 @@ class callr extends Module
      */
     private function getSettings()
     {
-        return json_decode(Configuration::get(strtoupper($this->name)), true);
+        return Tools::jsonDecode(Configuration::get(Tools::strtoupper($this->name)), true);
     }
 
     /**
@@ -435,7 +449,13 @@ class callr extends Module
         $settings = $this->getSettings();
         if (!empty($settings)) {
             if ($settings['admin_enabled'] && !empty($settings['admin_phone'])) {
-                $message = $this->tokenReplace($settings['admin_message'], $params['customer'], $params['order'], $params['currency'], $params['orderStatus']->id);
+                $message = $this->tokenReplace(
+                    $settings['admin_message'],
+                    $params['customer'],
+                    $params['order'],
+                    $params['currency'],
+                    $params['orderStatus']->id
+                );
                 $numbers = explode(', ', $settings['admin_phone']);
                 foreach ($numbers as $number) {
                     $this->sendSms(
