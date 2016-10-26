@@ -4,71 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "238bd197bb4f1d0be382b5ec241e0936",
-    "content-hash": "9a42361c47bee5412c75c292291c3903",
+    "hash": "f5f479bb35002bf4e6f1d3b4b039f3f6",
+    "content-hash": "a35382013cdcd24c8003fedcb6f385de",
     "packages": [
         {
-            "name": "callr/sdk-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/THECALLR/sdk-php.git",
-                "reference": "d608ed157369222a72ae7df14dbf69e8329877b4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/THECALLR/sdk-php/zipball/d608ed157369222a72ae7df14dbf69e8329877b4",
-                "reference": "d608ed157369222a72ae7df14dbf69e8329877b4",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "CALLR\\": "src/CALLR/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Florent CHAUVEAU",
-                    "email": "fc@callr.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Michael JACQUIN",
-                    "email": "mj@callr.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "CALLR PHP SDK for JSON-RPC API",
-            "homepage": "https://github.com/THECALLR/sdk-php",
-            "keywords": [
-                "CALLR",
-                "sdk",
-                "thecallr"
-            ],
-            "time": "2016-09-27 09:23:59"
-        },
-        {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "7.6.1",
+            "version": "7.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "78b06909657a11d3b915bd348adf982854dbbc29"
+                "reference": "e55e956a7a8211af3dfbd9dd5372ccc5eb79e495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/78b06909657a11d3b915bd348adf982854dbbc29",
-                "reference": "78b06909657a11d3b915bd348adf982854dbbc29",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/e55e956a7a8211af3dfbd9dd5372ccc5eb79e495",
+                "reference": "e55e956a7a8211af3dfbd9dd5372ccc5eb79e495",
                 "shasum": ""
             },
             "require": {
@@ -117,21 +67,24 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2016-09-12 19:11:13"
+            "time": "2016-10-26 13:35:16"
         },
         {
             "name": "giggsey/locale",
-            "version": "1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/Locale.git",
-                "reference": "9087acaf8493472fcd129118017fd7e06be3d8fa"
+                "reference": "8238764fa3f2c5bd8bdf981e2e019401d49229e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/Locale/zipball/9087acaf8493472fcd129118017fd7e06be3d8fa",
-                "reference": "9087acaf8493472fcd129118017fd7e06be3d8fa",
+                "url": "https://api.github.com/repos/giggsey/Locale/zipball/8238764fa3f2c5bd8bdf981e2e019401d49229e3",
+                "reference": "8238764fa3f2c5bd8bdf981e2e019401d49229e3",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
             },
             "require-dev": {
                 "pear/pear-core-minimal": "^1.9",
@@ -163,15 +116,13 @@
                 }
             ],
             "description": "Locale functions required by libphonenumber-for-php",
-            "time": "2016-08-04 23:02:29"
+            "time": "2016-10-24 20:49:55"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "callr/sdk-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

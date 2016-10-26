@@ -11,20 +11,12 @@ class ComposerStaticInit8352cd4f249726c83e0804002fd2dcda
         array (
             'Giggsey\\Locale\\' => 15,
         ),
-        'C' => 
-        array (
-            'CALLR\\' => 6,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Giggsey\\Locale\\' => 
         array (
             0 => __DIR__ . '/..' . '/giggsey/locale/src',
-        ),
-        'CALLR\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/callr/sdk-php/src/CALLR',
         ),
     );
 

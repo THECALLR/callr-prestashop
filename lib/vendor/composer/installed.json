@@ -1,18 +1,21 @@
 [
     {
         "name": "giggsey/locale",
-        "version": "1.0",
-        "version_normalized": "1.0.0.0",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/giggsey/Locale.git",
-            "reference": "9087acaf8493472fcd129118017fd7e06be3d8fa"
+            "reference": "8238764fa3f2c5bd8bdf981e2e019401d49229e3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/giggsey/Locale/zipball/9087acaf8493472fcd129118017fd7e06be3d8fa",
-            "reference": "9087acaf8493472fcd129118017fd7e06be3d8fa",
+            "url": "https://api.github.com/repos/giggsey/Locale/zipball/8238764fa3f2c5bd8bdf981e2e019401d49229e3",
+            "reference": "8238764fa3f2c5bd8bdf981e2e019401d49229e3",
             "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
         },
         "require-dev": {
             "pear/pear-core-minimal": "^1.9",
@@ -26,7 +29,7 @@
             "symfony/finder": "^2.8|^3.0",
             "symfony/process": "^2.8|^3.0"
         },
-        "time": "2016-08-04 23:02:29",
+        "time": "2016-10-24 20:49:55",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -49,17 +52,17 @@
     },
     {
         "name": "giggsey/libphonenumber-for-php",
-        "version": "7.6.1",
-        "version_normalized": "7.6.1.0",
+        "version": "7.7.3",
+        "version_normalized": "7.7.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-            "reference": "78b06909657a11d3b915bd348adf982854dbbc29"
+            "reference": "e55e956a7a8211af3dfbd9dd5372ccc5eb79e495"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/78b06909657a11d3b915bd348adf982854dbbc29",
-            "reference": "78b06909657a11d3b915bd348adf982854dbbc29",
+            "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/e55e956a7a8211af3dfbd9dd5372ccc5eb79e495",
+            "reference": "e55e956a7a8211af3dfbd9dd5372ccc5eb79e495",
             "shasum": ""
         },
         "require": {
@@ -76,7 +79,7 @@
             "satooshi/php-coveralls": "^1.0",
             "symfony/console": "^2.8|^3.0"
         },
-        "time": "2016-09-12 19:11:13",
+        "time": "2016-10-26 13:35:16",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -109,58 +112,6 @@
             "mobile",
             "phonenumber",
             "validation"
-        ]
-    },
-    {
-        "name": "callr/sdk-php",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/THECALLR/sdk-php.git",
-            "reference": "d608ed157369222a72ae7df14dbf69e8329877b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/THECALLR/sdk-php/zipball/d608ed157369222a72ae7df14dbf69e8329877b4",
-            "reference": "d608ed157369222a72ae7df14dbf69e8329877b4",
-            "shasum": ""
-        },
-        "require": {
-            "ext-curl": "*",
-            "ext-json": "*",
-            "php": ">=5.4.0"
-        },
-        "time": "2016-09-27 09:23:59",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "CALLR\\": "src/CALLR/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Florent CHAUVEAU",
-                "email": "fc@callr.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Michael JACQUIN",
-                "email": "mj@callr.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "CALLR PHP SDK for JSON-RPC API",
-        "homepage": "https://github.com/THECALLR/sdk-php",
-        "keywords": [
-            "CALLR",
-            "sdk",
-            "thecallr"
         ]
     }
 ]
