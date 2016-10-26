@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Giggsey\\Locale\\' => array($vendorDir . '/giggsey/locale/src'),
+    'CALLR\\' => array($vendorDir . '/callr/sdk-php/src/CALLR'),
 );

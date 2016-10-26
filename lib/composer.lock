@@ -4,9 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f5f479bb35002bf4e6f1d3b4b039f3f6",
-    "content-hash": "a35382013cdcd24c8003fedcb6f385de",
+    "hash": "248bb021150e503ad5a92f476974cee6",
+    "content-hash": "89115bf89d157ddc8672806bb78fc846",
     "packages": [
+        {
+            "name": "callr/sdk-php",
+            "version": "v0.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/THECALLR/sdk-php.git",
+                "reference": "ff263d153c82f8f4ce14ca301e365940ea63500f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/THECALLR/sdk-php/zipball/ff263d153c82f8f4ce14ca301e365940ea63500f",
+                "reference": "ff263d153c82f8f4ce14ca301e365940ea63500f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CALLR\\": "src/CALLR/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent CHAUVEAU",
+                    "email": "fc@callr.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael JACQUIN",
+                    "email": "mj@callr.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CALLR PHP SDK for JSON-RPC API",
+            "homepage": "https://github.com/THECALLR/sdk-php",
+            "keywords": [
+                "CALLR",
+                "sdk",
+                "thecallr"
+            ],
+            "time": "2016-10-25 15:53:34"
+        },
         {
             "name": "giggsey/libphonenumber-for-php",
             "version": "7.7.3",
